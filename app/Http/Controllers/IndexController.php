@@ -12,7 +12,9 @@ use App\Models\Nota;
 class IndexController extends Controller
 {
     public function index(){
+        $data['is_mobile'] = request()->header('User-Agent') ? preg_match('/android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i', request()->header('User-Agent')) : false;
         $data['is_home'] = true;
+        $data['meta_description'] = "Centro de Economía y Finanzas de Mendoza";
         $data['seccionesmenu'] = Seccion::where('orden_menu','>',0)->where('in_menu',1)->orderBy('orden_home','asc')->get();
         $data['secciones'] = Seccion::with('tarjetas')->with('datos')->where('orden_home','>',0)->where('in_home',1)->orderBy('orden_home','asc')->get();
         $data['equipo'] = Integrante::all();
@@ -27,8 +29,11 @@ class IndexController extends Controller
         $data['seccion'] = Seccion::find(10);
         $notas = Nota::where('seccion_id',10)
         ->select('id','titulo','url','imagen','autor','fecha','resumen')
+        ->orderBy('fecha','desc')
         ->paginate(3);
         $data['notas'] = $notas;
+        if(count($notas) > 0) $data['meta_description'] = $notas[0]->resumen;
+        else $data['meta_description'] = "Centro de Economía y Finanzas de Mendoza";
 
         $data['parametros'] = Parametro::whereIn('tipo',['redsocial','link','texto'])->get();
 

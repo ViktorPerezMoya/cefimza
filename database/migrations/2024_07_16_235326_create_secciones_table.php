@@ -53,8 +53,8 @@ return new class extends Migration
         Schema::create('informes', function (Blueprint $table) {
             $table->id();
             $table->string('imagen');
-            $table->string('titulo',70);
-            $table->string('url',70);
+            $table->string('titulo',150);
+            $table->string('url',150);
             $table->string('autor',50);
             $table->date('fecha');
             $table->string('resumen',255);

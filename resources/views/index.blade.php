@@ -1,11 +1,19 @@
 
 @extends('components.layouts.public')
 
+@section('meta_description', $meta_description)
+@section('meta_keywords', obtenerPalabrasLargas($meta_description))
+
+@section('metaog_title', 'CEFIMendoza')
+@section('metaog_description', $meta_description)
+@section('metaog_image', asset('img/portada_redes.png'))
+@section('metaog_url', URL::current())
+
 @section('content')
 <!-- Masthead-->
 <header class="masthead">
     <div class="container">
-        <img src="{{asset('img/portada.png')}}" alt="..." />
+        <img class="img img-fluid" src="{{asset('img/portada.png')}}" alt="CEFIMendoza" />
     </div>
 </header>
 
@@ -40,10 +48,10 @@
                     </div>
                     <div class="row text-center">
                         @foreach ($seccion->tarjetas as $item)
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2 {{$is_mobile ? 'ps-5 pe-5' : 'ps-3 pe-3'}}">
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img class="img-fluid" src="{{asset('img/'.$item->imagen)}}" alt="..." />
+                                    <img class="img-fluid" src="{{asset('img/'.$item->imagen)}}" alt="{{$item->titulo}}" />
                                 </div>
                                 <h4 class="my-3">{{$item->titulo}}</h4>
                                 <p class="text-muted">{{$item->detalle}}</p>
@@ -62,7 +70,7 @@
                     </div>
                     <div class="row">
                         @foreach ($seccion->tarjetas as $item)
-                        <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="col-lg-4 col-sm-6 mb-4 {{$is_mobile ? 'ps-5 pe-5' : 'ps-3 pe-3'}}">
                             <!-- Reporte item 1-->
                             <div class="reportes-item">
                                 <a class="reportes-link" href="#">
@@ -84,7 +92,7 @@
             @endif
             @break
         @default
-            <section class="page-section bg-light" id="about">
+            <section class="page-section bg-light ps-4 pe-4" id="about">
                 <div class="container">
                     <div class="text-center">
                         <h2 class="section-heading text-uppercase">{{$seccion->titulo}}</h2>
@@ -104,7 +112,7 @@
     @endswitch
 @endforeach
 <!-- Team-->
-<section class="page-section" id="team">
+<section class="page-section ps-4 pe-4" id="team">
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Nuestro Equipo</h2>
@@ -114,7 +122,7 @@
             @foreach ($equipo as $integrante)
             <div class="col-lg-4">
                 <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="{{asset('img/'.$integrante->imagen)}}" alt="..." />
+                    <img class="mx-auto rounded-circle" src="{{asset('img/'.$integrante->imagen)}}" alt="{{$integrante->nombre}}" />
                     <h4>{{$integrante->nombre}}</h4>
                     <p class="text-muted">{{$integrante->puesto}}</p>
                     <a class="btn btn-dark btn-social mx-2" href="{{$integrante->twitter}}" aria-label="{{$integrante->nombre}} Twitter Profile"><i class="fab fa-twitter"></i></a>

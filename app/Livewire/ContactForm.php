@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 use App\Mail\ContactoEmail;
 
 class ContactForm extends Component
@@ -31,18 +32,23 @@ class ContactForm extends Component
     public function enviar(){
         $this->validate();
         try {
-            Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactoEmail([
+            Mail::to(env('MAIL_CONTACT_ADDRESS'))->send(new ContactoEmail([
                 'nombre' => $this->nombre,
                 'email' => $this->email,
                 'telefono' => $this->telefono,
                 'mensaje' => $this->mensaje
             ]));
 
+            $this->nombre = "";
+            $this->email = "";
+            $this->telefono = "";
+            $this->mensaje = "";
             $this->succesMessage = "Correo Enviado";
 
         } catch (\Throwable $th) {
             $this->errorMessage = "No se pudo enviar el mensaje.";
-            dd($th->getMessage());
+            Log::error($th->getMessage());
+            //dd($th->getMessage());
         }
     }
 

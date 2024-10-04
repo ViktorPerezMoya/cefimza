@@ -1,13 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
+        <title>@yield('title_page','CEFIMendoza')</title>
+
         <meta name="description" content="@yield('meta_description')">
         <meta name="keywords" content="@yield('meta_keywords')">
+        <meta name="robots" content="index, follow">
         <meta name="author" content="CEFIMendoza" />
-        <title>Agency - Start Bootstrap Theme</title>
+
+        <!-- Open Graph Tags -->
+        <meta property="og:title" content="@yield('metaog_title')" />
+        <meta property="og:description" content="@yield('metaog_description')" />
+        <meta property="og:image" content="@yield('metaog_image')" />
+        <meta property="og:url" content="@yield('metaog_url')" />
+        <meta property="og:type" content="website" />
+
+        <!-- Twitter Card Tags -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="@yield('metaog_title')" />
+        <meta name="twitter:description" content="@yield('metaog_description')" />
+        <meta name="twitter:image" content="@yield('metaog_image')" />
+        <meta name="twitter:url" content="@yield('metaog_url')" />
+
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -33,7 +50,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top {{empty($in_home) ? 'navbar-out-home' : ''}}" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="./"><img src="{{asset('img/navbar-logo.png')}}" alt="..." /></a>
+                <a class="navbar-brand" href="/"><img src="{{asset('img/navbar-logo.png')}}" alt="menu" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
