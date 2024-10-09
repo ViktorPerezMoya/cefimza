@@ -51,7 +51,7 @@
                         <div class="col-md-4 mb-2 {{$is_mobile ? 'ps-5 pe-5' : 'ps-3 pe-3'}}">
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img class="img-fluid" src="{{asset('img/'.$item->imagen)}}" alt="{{$item->titulo}}" />
+                                    <img class="img-fluid" src="{{asset('storage/img/'.$item->imagen)}}" alt="{{$item->titulo}}" />
                                 </div>
                                 <h4 class="my-3">{{$item->titulo}}</h4>
                                 <p class="text-muted">{{$item->detalle}}</p>
@@ -74,7 +74,7 @@
                             <!-- Reporte item 1-->
                             <div class="reportes-item">
                                 <a class="reportes-link" href="#">
-                                    <img class="img-fluid" src="{{asset('img/'.$item->imagen)}}" alt="{{$item->titulo}}" />
+                                    <img class="img-fluid" src="{{asset('storage/img/'.$item->imagen)}}" alt="{{$item->titulo}}" />
                                 </a>
                                 <div class="reportes-caption">
                                     <div class="reportes-caption-heading">{{$item->titulo}}</div>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-3">
-                            <img class="img-fluid" src="{{asset('img/'.$seccion->imagen)}}" alt="">
+                            <img class="img-fluid" src="{{asset('storage/img/'.$seccion->imagen)}}" alt="">
                         </div>
                         <div class="col-lg-9 text-center">
                             <p>{!!$seccion->contenido!!}</p>
@@ -122,7 +122,7 @@
             @foreach ($equipo as $integrante)
             <div class="col-lg-4">
                 <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="{{asset('img/'.$integrante->imagen)}}" alt="{{$integrante->nombre}}" />
+                    <img class="mx-auto rounded-circle" src="{{asset('storage/img/'.$integrante->imagen)}}" alt="{{$integrante->nombre}}" />
                     <h4>{{$integrante->nombre}}</h4>
                     <p class="text-muted">{{$integrante->puesto}}</p>
                     <a class="btn btn-dark btn-social mx-2" href="{{$integrante->twitter}}" aria-label="{{$integrante->nombre}} Twitter Profile"><i class="fab fa-twitter"></i></a>

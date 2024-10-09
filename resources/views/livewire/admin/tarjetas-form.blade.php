@@ -20,7 +20,7 @@
                         @if (($id == 0 && $imagen) || $changedImage)
                         <img src="{{ $imagen->temporaryUrl() }}" id="imageorig" height="100">
                         @else
-                        <img src="{{asset('img/'.$imagen)}}" id="imageorig" height="100">
+                        <img src="{{asset('storage/img/'.$imagen)}}" id="imageorig" height="100">
                         @endif
                       </label>
                       <input type="file" class="form-control" wire:model="imagen" wire:change="changeImage" id="imagen" accept=".png, .jpg, .jpeg">

@@ -25,7 +25,7 @@
             @foreach ($integrantes as $integrante)
             <div class="col">
                 <div class="card" style="width: 15rem;">
-                    <img src="{{asset('img/'.$integrante->imagen)}}" id="imageorig"  class="card-img-top" alt="{{$integrante->imagen}}">
+                    <img src="{{asset('storage/img/'.$integrante->imagen)}}" id="imageorig"  class="card-img-top" alt="{{$integrante->imagen}}">
                     <div class="card-body text-center">
                         <h5 class="card-title">{{$integrante->nombre}}</h5>
                         <p class="card-text">{{$integrante->puesto}}</p>

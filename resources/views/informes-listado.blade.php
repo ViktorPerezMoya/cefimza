@@ -7,7 +7,7 @@
 
 @section('metaog_title', 'CEFIMendoza | Informes')
 @section('metaog_description', $notas[0]->resumen)
-@section('metaog_image', asset('img/'.$notas[0]->imagen))
+@section('metaog_image', asset('storage/img/'.$notas[0]->imagen))
 @section('metaog_url', URL::current())
 
 @section('content')
@@ -21,7 +21,7 @@
         <div class="bg-light">
             @foreach ($notas as $index => $item)
             <div class="row g-0">
-                <div class="col-lg-6 {{$index % 2 ? 'order-lg-2' : ''}} text-white showcase-img" style="background-image: url('{{asset('img/'.$item->imagen)}}')">
+                <div class="col-lg-6 {{$index % 2 ? 'order-lg-2' : ''}} text-white showcase-img" style="background-image: url('{{asset('storage/img/'.$item->imagen)}}')">
                     <a href="informe/{{$item->url}}" class="image-nota-link"></a>
                 </div>
                 <div class="col-lg-6 {{$index % 2 ? 'order-lg-1' : ''}} my-auto showcase-text">

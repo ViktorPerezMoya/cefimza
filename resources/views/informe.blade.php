@@ -7,7 +7,7 @@
 
 @section('metaog_title', $informe->titulo)
 @section('metaog_description', $informe->resumen)
-@section('metaog_image', asset('img/'.$informe->imagen))
+@section('metaog_image', asset('storage/img/'.$informe->imagen))
 @section('metaog_url', URL::current())
 
 @section('content')
@@ -39,7 +39,7 @@
         </div>
         <div class="row">
             <div class="col-lg-3">
-                <img class="img-fluid" src="{{asset('img/'.$informe->imagen)}}" alt="">
+                <img class="img-fluid" src="{{asset('storage/img/'.$informe->imagen)}}" alt="">
             </div>
             <div class="col-lg-9 nota">
                 <p>{!! str_replace('<img ','<img class="img img-fluid"', $informe->contenido) !!}</p>
