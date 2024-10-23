@@ -4,12 +4,12 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-        <title>@yield('title_page','CEFIMendoza')</title>
+        <title>@yield('title_page','CEFI Mendoza')</title>
 
         <meta name="description" content="@yield('meta_description')">
         <meta name="keywords" content="@yield('meta_keywords')">
         <meta name="robots" content="index, follow">
-        <meta name="author" content="CEFIMendoza" />
+        <meta name="author" content="CEFI Mendoza" />
 
         <!-- Open Graph Tags -->
         <meta property="og:title" content="@yield('metaog_title')" />

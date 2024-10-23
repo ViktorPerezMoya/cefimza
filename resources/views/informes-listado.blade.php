@@ -1,11 +1,11 @@
 
 @extends('components.layouts.public')
 
-@section('title_page','CEFIMendoza | Informes')
+@section('title_page','CEFI Mendoza | Informes')
 @section('meta_description', $meta_description)
 @section('meta_keywords', obtenerPalabrasLargas(implode(",",arrayPluck($notas->toArray()['data'],'titulo'))))
 
-@section('metaog_title', 'CEFIMendoza | Informes')
+@section('metaog_title', 'CEFI Mendoza | Informes')
 @section('metaog_description', $notas[0]->resumen)
 @section('metaog_image', asset('storage/img/'.$notas[0]->imagen))
 @section('metaog_url', URL::current())

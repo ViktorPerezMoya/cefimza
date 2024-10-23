@@ -12,6 +12,7 @@ use App\Models\Nota;
 class IndexController extends Controller
 {
     public function index(){
+        $data['title'] = 'CEFI Mendoza | Home';
         $data['is_mobile'] = request()->header('User-Agent') ? preg_match('/android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i', request()->header('User-Agent')) : false;
         $data['is_home'] = true;
         $data['meta_description'] = "Centro de Economía y Finanzas de Mendoza";
@@ -27,7 +28,7 @@ class IndexController extends Controller
     public function informes(Request $request){
         $data['seccionesmenu'] = Seccion::where('orden_menu','>',0)->where('in_menu',1)->orderBy('orden_home','asc')->get();
         $data['seccion'] = Seccion::find(10);
-        $notas = Nota::where('seccion_id',10)
+        $notas = Nota::where('seccion_id',10)->where('visible',true)
         ->select('id','titulo','url','imagen','autor','fecha','resumen')
         ->orderBy('fecha','desc')
         ->paginate(3);

@@ -4,7 +4,7 @@
 @section('meta_description', $meta_description)
 @section('meta_keywords', obtenerPalabrasLargas($meta_description))
 
-@section('metaog_title', 'CEFIMendoza')
+@section('metaog_title', 'CEFI Mendoza')
 @section('metaog_description', $meta_description)
 @section('metaog_image', asset('img/portada_redes.png'))
 @section('metaog_url', URL::current())

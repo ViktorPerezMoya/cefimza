@@ -1,7 +1,7 @@
 
 @extends('components.layouts.public')
 
-@section('title_page','CEFIMendoza | '.$informe->titulo)
+@section('title_page','CEFI Mendoza | '.$informe->titulo)
 @section('meta_description', $informe->titulo)
 @section('meta_keywords', obtenerPalabrasLargas($informe->titulo))
 
