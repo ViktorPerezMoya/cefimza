@@ -29,6 +29,10 @@ use App\Http\Middleware\InterceptorMiddleware;
 Route::get('/', [IndexController::class,'index'])->middleware(InterceptorMiddleware::class);
 Route::get('/informes', [IndexController::class,'informes'])->middleware(InterceptorMiddleware::class);
 Route::get('/informe/{url}', [IndexController::class,'informe'])->middleware(InterceptorMiddleware::class);
+Route::get('/monitor', [IndexController::class,'monitor'])->middleware(InterceptorMiddleware::class);
+Route::get('/monitor/{url}', [IndexController::class,'informe'])->middleware(InterceptorMiddleware::class);
+Route::get('/observatorio', [IndexController::class,'observatorio'])->middleware(InterceptorMiddleware::class);
+Route::get('/observatorio/{url}', [IndexController::class,'informe'])->middleware(InterceptorMiddleware::class);
 
 Route::get('/test',                 Test::class);
 

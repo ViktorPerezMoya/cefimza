@@ -28,11 +28,12 @@ class IndexController extends Controller
     public function informes(Request $request){
         $data['seccionesmenu'] = Seccion::where('orden_menu','>',0)->where('in_menu',1)->orderBy('orden_home','asc')->get();
         $data['seccion'] = Seccion::find(10);
+        $data['title'] = "CEFI Mendoza | ".$data['seccion']->titulo;
         $notas = Nota::where('seccion_id',10)->where('visible',true)
         ->select('id','titulo','url','imagen','autor','fecha','resumen')
         ->orderBy('fecha','desc')
         ->paginate(3);
-        $data['notas'] = $notas;
+        $data['notas'] = $notas ?? [];
         if(count($notas) > 0) $data['meta_description'] = $notas[0]->resumen;
         else $data['meta_description'] = "Centro de Economía y Finanzas de Mendoza";
 
@@ -48,5 +49,39 @@ class IndexController extends Controller
         $data['parametros'] = Parametro::whereIn('tipo',['redsocial','link','texto'])->get();
 
         return view('informe',$data);
+    }
+
+    public function monitor(Request $request){
+        $data['seccionesmenu'] = Seccion::where('orden_menu','>',0)->where('in_menu',1)->orderBy('orden_home','asc')->get();
+        $data['seccion'] = Seccion::find(13);
+        $data['title'] = "CEFI Mendoza | ".$data['seccion']->titulo;
+        $notas = Nota::where('seccion_id',13)->where('visible',true)
+        ->select('id','titulo','url','imagen','autor','fecha','resumen')
+        ->orderBy('fecha','desc')
+        ->paginate(3);
+        $data['notas'] = $notas ?? [];
+        if(count($notas) > 0 ) $data['meta_description'] = $notas[0]->resumen;
+        else $data['meta_description'] = "Centro de Economía y Finanzas de Mendoza";
+
+        $data['parametros'] = Parametro::whereIn('tipo',['redsocial','link','texto'])->get();
+
+        return view('informes-listado',$data);
+    }
+
+    public function observatorio(Request $request){
+        $data['seccionesmenu'] = Seccion::where('orden_menu','>',0)->where('in_menu',1)->orderBy('orden_home','asc')->get();
+        $data['seccion'] = Seccion::find(14);
+        $data['title'] = "CEFI Mendoza | ".$data['seccion']->titulo;
+        $notas = Nota::where('seccion_id',14)->where('visible',true)
+        ->select('id','titulo','url','imagen','autor','fecha','resumen')
+        ->orderBy('fecha','desc')
+        ->paginate(3);
+        $data['notas'] = $notas ?? [];
+        if(count($notas) > 0 ) $data['meta_description'] = $notas[0]->resumen;
+        else $data['meta_description'] = "Centro de Economía y Finanzas de Mendoza";
+
+        $data['parametros'] = Parametro::whereIn('tipo',['redsocial','link','texto'])->get();
+
+        return view('informes-listado',$data);
     }
 }
